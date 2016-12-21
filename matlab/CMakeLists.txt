@@ -33,6 +33,7 @@ endfunction()
 # global settings
 file(GLOB Matlab_srcs +caffe/private/caffe_.cpp)
 set(Matlab_caffe_mex ${PROJECT_SOURCE_DIR}/matlab/+caffe/private/caffe_.mex)
+set(Matlab_maci64 -L${Matlab_DIR}/bin/maci64)
 
 caffe_get_current_cflags(cflags)
 caffe_parse_linker_libs(Caffe_LINKER_LIBS folders libflags macos_frameworks)
@@ -47,7 +48,7 @@ if(build_using MATCHES "Matlab")
   string(REPLACE ";-lpython2" "" matlab_libflags "${libflags}")
   caffe_fetch_and_set_proper_mexext(Matlab_caffe_mex)
   add_custom_command(OUTPUT ${Matlab_caffe_mex} COMMAND ${Matlab_mex}
-      ARGS -output ${Matlab_caffe_mex} ${Matlab_srcs} ${cflags} ${link_folders} ${matlab_libflags}
+      ARGS -output ${Matlab_caffe_mex} ${Matlab_srcs} ${cflags} ${Matlab_maci64} ${link_folders} ${matlab_libflags}
       DEPENDS caffe COMMENT "Building Matlab interface: ${Matlab_caffe_mex}" VERBATIM)
   add_custom_target(matlab ALL DEPENDS ${Matlab_caffe_mex} SOURCES ${Matlab_srcs})
 
