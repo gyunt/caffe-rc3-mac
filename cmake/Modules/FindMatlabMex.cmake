@@ -14,15 +14,13 @@ if(MSVC)
 endif()
 
 if(APPLE)
-  foreach(__ver "R2014b" "R2014a" "R2013b" "R2013a" "R2012b" "R2012a" "R2011b" "R2011a" "R2010b" "R2010a")
+  foreach(__ver "R2016b" "R2016a" "R2015b" "R2015a" "R2014b" "R2014a" "R2013b" "R2013a" "R2012b" "R2012a" "R2011b" "R2011a" "R2010b" "R2010a")
     if(EXISTS /Applications/MATLAB_${__ver}.app)
       set(__matlab_root /Applications/MATLAB_${__ver}.app)
       break()
     endif()
   endforeach()
-endif()
-
-if(UNIX)
+elseif(UNIX)
    execute_process(COMMAND which matlab OUTPUT_STRIP_TRAILING_WHITESPACE
                    OUTPUT_VARIABLE __out RESULT_VARIABLE __res)
 
