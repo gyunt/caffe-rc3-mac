@@ -1,5 +1,17 @@
 # Caffe
 
+
+This is rc3-mac-compatible version of caffe. 
+
+## Installation
+- Follow [the instruction](http://caffe.berkeleyvision.org/install_osx.html)
+- $ mkdir build
+- $ cd build
+- $ cmake -DCPU_ONLY=on -DBUILD_matlab=on ..
+- $ cp -a lib/. /usr/local/lib
+
+-----
+
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
