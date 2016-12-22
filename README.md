@@ -5,9 +5,13 @@ This is rc3-mac-compatible version of caffe.
 
 ## Installation
 - Follow [the instruction](http://caffe.berkeleyvision.org/install_osx.html)
+- brew uninstall openblas; brew install --fresh -vd openblas
 - $ mkdir build
 - $ cd build
-- $ cmake -DCPU_ONLY=on -DBUILD_matlab=on ..
+#cpu only
+- $ cmake -DCPU_ONLY=on -DCMAKE_CXX_FLAGS=-I/usr/local/opt/openblas/include ..
+#cpu only with matcaffe
+- $ cmake -DCPU_ONLY=on -DBUILD_matlab=on -DCMAKE_CXX_FLAGS=-I/usr/local/opt/openblas/include ..
 - $ cp -a lib/. /usr/local/lib
 
 -----
