@@ -20,7 +20,14 @@ run cmake.
 $ cmake -DCPU_ONLY=on -DCMAKE_CXX_FLAGS=-I/usr/local/opt/openblas/include ..
 #cpu only with matcaffe
 $ cmake -DCPU_ONLY=on -DBUILD_matlab=on -DCMAKE_CXX_FLAGS=-I/usr/local/opt/openblas/include ..
+```   
+
+run make
 ```
+$ make all
+$ make test
+$ make runtest
+```   
 
 copy caffe lib files to the /usr/local/lib.
 ```
